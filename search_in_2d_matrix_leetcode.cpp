@@ -40,7 +40,7 @@ if(incre>0){
 
 
 
-                        // OPTIMISED-WAY APPROACH-----O()
+                        // OPTIMISED-WAY APPROACH-----O(n x logn = nlogn);
 
 bool better_search(vector<vector<int>>v, int target){
    
@@ -72,8 +72,8 @@ return-1;
 
 int main(){
 
-int target=2;
-vector<vector<int>>matrix={{1}};
+int target=30;
+vector<vector<int>>matrix={{1,3,5,7},{10,11,16,20},{23,30,34,60}};
 
 brute_f_search(matrix,target);
 
