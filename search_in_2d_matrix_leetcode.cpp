@@ -42,7 +42,26 @@ if(incre>0){
 
                         // OPTIMISED-WAY APPROACH-----O()
 
+bool better_search(vector<vector<int>>v, int target){
+   
+    int i=0;
+    int j=v[i].size()-1;
+    while(i<v.size() && j>=0){
+        
+        if(target==v[i][j]){ return 1;break;}
+        else if(v[i][j] < target) {i++;}
+        else if(v[i][j] > target) {j--;}
+       
+    }
+    if(i>v.size() || j<0){
+        return 0;
+    }
+    
+return-1;
 
+
+
+}
 
 
 
@@ -52,12 +71,15 @@ if(incre>0){
 
 
 int main(){
-    
+
 int target=13;
 vector<vector<int>>matrix={{1,3,5,7},{10,11,16,20},{23,30,34,60}};
 
 brute_f_search(matrix,target);
 
+cout<<"\n";
+
+cout<<better_search(matrix,target);
 
 
 
