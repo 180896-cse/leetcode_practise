@@ -31,7 +31,7 @@ void Brute_pow(double x, int n){
 
 
 void optimal_pow(double x, int n){
-    cout<<pow(x,n);
+   cout<<pow(x,n);
 }
 
 
@@ -44,9 +44,9 @@ void optimal_pow(double x, int n){
 
 
 int main(){
-    double x= 2;
-    int n= 2;
- Brute_pow(x,n);
+    double x= 0.00001;
+    int n= 2147483647;
+Brute_pow(x,n);
 
 cout<<"\n";
 
