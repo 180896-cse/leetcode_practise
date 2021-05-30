@@ -3,17 +3,18 @@
 #include<math.h>
 using namespace std;
 
-                                         // BRUTE-FORCE APPROACH---O(n^2);
+                                         // BRUTE-FORCE APPROACH---O(n^2)  space---O(n);
 
 
-void Brute_majority(vector<int>v){
-int s=(v.size()+1)/2;
-auto itr=max_element(v.begin(),v.end());
+void Brute_majority(multiset<int>ms){
+int s=(ms.size()+1)/2;
+auto itr=max_element(ms.begin(),ms.end());
 multimap<int,int>mp;
 multimap<int,int>::iterator it;
-for(int i=0;i<v.size();i++){
-    int cnt=count(v.begin(),v.end(),v[i]);
-    mp.insert(make_pair(cnt,v[i]));
+for(auto & val:ms){
+    int cnt=ms.count(val);
+    mp.insert(make_pair(cnt,val));
+    
 }
 for(auto & elm:mp){
     if(elm.first>=s){
@@ -41,9 +42,9 @@ for(auto & elm:mp){
 
 
 int main(){
-vector<int>v={-1,2,2,1,2,1};
+multiset<int>ms={-1,2,2,1,2,1};
 
-Brute_majority(v);
+Brute_majority(ms);
 
 cout<<"\n";
 
