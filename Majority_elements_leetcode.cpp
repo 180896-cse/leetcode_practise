@@ -8,7 +8,7 @@ using namespace std;
 
 void Brute_majority(multiset<int>ms){
 int s=(ms.size()+1)/2;
-auto itr=max_element(ms.begin(),ms.end());
+
 multimap<int,int>mp;
 multimap<int,int>::iterator it;
 for(auto & val:ms){
@@ -22,16 +22,59 @@ for(auto & elm:mp){
         break;
     }
 }
-
-
-
-
-
-
-
- 
     
 }
+
+
+
+
+
+
+
+                // OPTIMAL-WAY APPROACH---O(n), SPACECOMPLEX:---O(1)
+
+
+void optimal_majority(vector<int>v){
+int maj=0;
+int count=0;
+for(int i=0;i<v.size();i++){
+if(i==0){
+    maj=v[i];
+    count++;
+}else{
+    if(v[i]!=maj){
+        count--;
+        if(count==0){
+            maj=v[i];
+            count++;
+        }
+    }else{
+        count++;
+        if(i==v.size()-1){
+            cout<<maj;
+            break;
+        }
+    }
+
+
+
+
+}
+if(i==v.size()-1){
+            cout<<maj;
+            break;
+        }
+
+
+}
+
+
+
+
+}
+
+
+
 
 
 
@@ -43,10 +86,13 @@ for(auto & elm:mp){
 
 int main(){
 multiset<int>ms={-1,2,2,1,2,1};
+vector<int>v={-1,2,2,1,2,1};
 
-Brute_majority(ms);
+Brute_majority(ms);   //  IN BRUTE-FORCE APPPROACH I HAVE DONE IT WITH TAKING INPUT IN VECTOR BUT CAN DO IN VECTOR ALSO IN SAME MANNNER OR JUST TRANSFORM THE VECTOR FROM MULTISET 
 
 cout<<"\n";
+
+optimal_majority(v);
 
 
 
