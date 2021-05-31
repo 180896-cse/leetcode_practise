@@ -3,10 +3,29 @@
 #include<math.h>
 using namespace std;
 
-                                         // BRUTE-FORCE APPROACH---O(n^2)  space---O(n);
 
 
-void Brute_majority(multiset<int>ms){
+                    //BRUTE-FORCE APPROACH ---- O(n^2) AND SPACE COMPLEXITY ----O(1);
+
+
+void brute_majority(vector<int>v){
+    int s=(v.size()-1)/2;
+    for(auto & i:v){
+        int knt=count(v.begin(),v.end(),v[i]);
+        if(knt >= s){
+            cout<<v[i];
+            break;
+        }
+    }
+}
+
+
+
+
+                                         // BETTER APPROACH---O(nlogn)  space---O(n);
+
+
+void better_majority(multiset<int>ms){
 int s=(ms.size()+1)/2;
 
 multimap<int,int>mp;
@@ -24,9 +43,6 @@ for(auto & elm:mp){
 }
     
 }
-
-
-
 
 
 
@@ -87,8 +103,11 @@ if(i==v.size()-1){
 int main(){
 multiset<int>ms={-1,2,2,1,2,1};
 vector<int>v={-1,2,2,1,2,1};
+brute_majority(v);
 
-Brute_majority(ms);   //  IN BRUTE-FORCE APPPROACH I HAVE DONE IT WITH TAKING INPUT IN VECTOR BUT CAN DO IN VECTOR ALSO IN SAME MANNNER OR JUST TRANSFORM THE VECTOR FROM MULTISET 
+cout<<"\n";
+
+better_majority(ms);   //  IN BETTER APPPROACH I HAVE DONE IT WITH TAKING INPUT IN VECTOR BUT CAN DO IN VECTOR ALSO IN SAME MANNNER OR JUST TRANSFORM THE VECTOR FROM MULTISET 
 
 cout<<"\n";
 
