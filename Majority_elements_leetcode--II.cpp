@@ -29,6 +29,37 @@ return k;
 
 
 
+                                    // BETTER-APPROACH SOLUTION --O(nLogn)-- SPACE COMLEXITY--(O(n));
+
+
+vector<int>better_majority(vector<int>nums){
+    int knt=0;
+    int s=nums.size()/3;
+    unordered_map<int,int>mp;
+    unordered_map<int,int>::iterator it;
+    for(int i=0;i<nums.size();i++){
+        int knt=count (nums.begin(),nums.end(),nums[i]);
+        mp.insert(make_pair(nums[i],knt));
+    }
+    vector<int>ans;
+    if(s==0){
+        
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 int main(){
 vector<int>nums={1,2};
