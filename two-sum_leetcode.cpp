@@ -26,27 +26,24 @@ vector<int>twoSum(vector<int>& nums, int target) {
 
 
 vector<int>twoSum_better(vector<int>& nums, int target) {
-      int indx1=0,indx2=0;
-       unordered_map<int,int>mp;
-       unordered_map<int,int>::iterator itr;
-       for(int i=0;i<nums.size();i++){
-           if(nums[i+1]==nums.size()){
-               mp.insert(make_pair(nums[i],0));
-           }
-           mp.insert(make_pair(nums[i],nums[i+1]));
-           
-       }
-       for(auto &i:mp){
-           if((i.first)+(i.second)==target){
-               indx1=i.first;
-               indx2=i.second;
-           }
-       }
-       auto it=find(nums.begin(),nums.end(),indx1);
-       auto it2=find(nums.begin(),nums.end(),indx2);
-       int a= it-nums.begin();
-       int b= it2-nums.begin();
-       cout<<a<<" "<<b;
+     unordered_map<int,int>mp;
+     vector<int>ans;
+     for(int i=0;i<nums.size();i++){
+         int a=target-nums[i];
+         auto itr=mp.find(a);
+         if(itr==mp.end()){
+             mp.insert(make_pair(nums[i],i));
+         }
+         else if (itr!=mp.end())
+         {
+             ans.push_back(mp[a]);
+             ans.push_back(i);
+         }
+         
+         
+     }
+
+return ans;
 
     }
 
@@ -62,16 +59,20 @@ vector<int>twoSum_better(vector<int>& nums, int target) {
 
 
 int main(){
-vector<int>nums={3,2,4};
-int target=6;
+vector<int>nums={2,11,7,15};
+int target=9;
 vector<int>brute_force=twoSum(nums,target);
 for(auto & i:brute_force){
     cout<<i<<" ";
 }
 cout<<"\n";
-twoSum_better(nums,target);
+vector<int>better_app=twoSum_better(nums,target);
+for(auto & i:better_app){
+    cout<<i<<" ";
+}
 
 
 
 
-return 0; }
+return 0;
+}
