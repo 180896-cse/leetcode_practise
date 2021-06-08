@@ -20,11 +20,12 @@ ans.insert(make_pair(*ptr,*ptr2));
 ptr++;
 ptr2--;
 }
-if(*ptr==*ptr-1){
+
+if(*ptr==*ptr--){
     *ptr++;
 }
-if(*ptr2==*ptr+1){
-    *ptr--;
+if(*ptr2==*ptr2++){
+    *ptr2--;
 }
 if(ptr==ptr2 || ptr>ptr2){
     break;
